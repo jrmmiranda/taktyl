@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//List Scores
+Route::get('/scores', [App\Http\Controllers\ScoreController::class, 'index'])->name('scores.index');
+
+//Store Users
+Route::post('/scores/store', [App\Http\Controllers\ScoreController::class, 'store'])->name('scores.store');
